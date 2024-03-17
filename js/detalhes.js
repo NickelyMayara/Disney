@@ -1,16 +1,22 @@
+function descryptId(id) {
+    return parseInt(id, 36)
+}
+
 async function carregaCaracteres(baseUrl,id) {  
+    console.log(baseUrl, id)
     try {                                     
         const response = await fetch(`${baseUrl}/${id}`)  
-        console.log(response)
         if (!response) { 
             throw new Error('Erro ao carregar o personagem')
         }
         return await response.json()
     } catch (error) {
-        // console.log(error)
+        console.log(error)
         throw error
     }
 }
+
+carregaCaracteres()
 
 async function detalharInfo() {  
     const urlParam = new URLSearchParams(window.location.search)
@@ -22,10 +28,12 @@ async function detalharInfo() {
     }
 
     const url = `https://api.disneyapi.dev/character/`
+    const idDescrypted = descryptId(idParam)
 
     try {
-        const character = await carregaCaracteres(url, idParam)
-        renderizarPersonagem(character)
+        const character = await carregaCaracteres(url, idDescrypted)
+        // console.log(character)
+        anexarInfo(character)
     } catch (error) {
         console.log(error)
     }
@@ -33,7 +41,7 @@ async function detalharInfo() {
 
 detalharInfo()
 
-async function renderizarPersonagem(character) {
+async function anexarInfo(character) {
     // console.log(character)
 
     const img = document.querySelector('.img')
@@ -42,7 +50,7 @@ async function renderizarPersonagem(character) {
     const videoGames = document.querySelector('.videoGames')
     const sourceUrl = document.querySelector('.sourceUrl')
 
-    img.src = character.image
+    img.src = character.imageUrl
     name.innerHTML = character.name
     films.innerHTML = character.films
     videoGames.innerHTML = character.videoGames

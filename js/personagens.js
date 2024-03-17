@@ -7,11 +7,19 @@ const carregaCaracteres = async () => {
     return data;  // Retorna data diretamente sem precisar colocar em um objeto 
 };
 
+const separaInfo = async () => {
+    const characters = await carregaCaracteres();
+    // console.log('Characters: ', characters);
+    InfoPersonagens(characters);
+}
+
+separaInfo()
+
 function InfoPersonagens(characters) {  // funçaõ das informações de characters
     const characterContainer = document.getElementById('character-container')
     characters.map((character) => {
         const divCharacter = document.createElement('div')
-        divCharacter.id = `character-${character.id}`
+        divCharacter._id = `character-${character._id}`
         divCharacter.innerHTML = `
             <img id="img-character" class="img-character" src="${character.imageUrl}" alt="Imagem do personagem">
             <article class="characterInfo">
@@ -21,22 +29,18 @@ function InfoPersonagens(characters) {  // funçaõ das informações de charact
         divCharacter.classList.add('character-box')
         characterContainer.appendChild(divCharacter) // elemento_pai.appendChild(elemento_filho)
         divCharacter.addEventListener('click', () => {  // ao clicar vai chamar a função
-            detalhesPersonagens(character.id)
+            detalhesPersonagens(character._id)
         })
     })
 }
 
-function detalhesPersonagens(id){
-    console.log(id)
-    const urlDetalhes = `./pages/detalhes.html?id=${id}`
-    window.location.href = urlDetalhes
+function detalhesPersonagens(_id){
+    const idCriptografado = criptografarId(_id)
+    window.location.href = `./detalhes.html?id=${idCriptografado}`
 }
 
-const separaInfo = async () => {
-    const characters = await carregaCaracteres();
-    // console.log('Characters: ', characters);
-    InfoPersonagens(characters);
+function criptografarId(_id){
+    return _id.toString(36)
 }
 
-separaInfo()
 
