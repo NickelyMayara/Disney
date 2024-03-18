@@ -16,19 +16,17 @@ async function carregaCaracteres(baseUrl,id) {
     }
 }
 
-carregaCaracteres()
-
 async function detalharInfo() {  
     const urlParam = new URLSearchParams(window.location.search)
-    const idParam = urlParam.get('id')
+    const idParam = urlParam.get('_id')
 
     if (!idParam) {
         console.log('ID não encontrado na URL')
         return
     }
 
-    const url = `https://api.disneyapi.dev/character/`
     const idDescrypted = descryptId(idParam)
+    const url = `'https://api.disneyapi.dev/character/206`
 
     try {
         const character = await carregaCaracteres(url, idDescrypted)
@@ -56,3 +54,4 @@ async function anexarInfo(character) {
     videoGames.innerHTML = character.videoGames
     sourceUrl.innerHTML = character.sourceUrl
 }
+

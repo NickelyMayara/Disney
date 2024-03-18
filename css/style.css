@@ -29,7 +29,7 @@ html{
     justify-content: space-between;
 }
 
-.headerInicial{
+#headerInicial{
     width: 100%;
     padding: 60px 4%;
     position: fixed;
@@ -37,18 +37,19 @@ html{
     left: 0;
 }
 
-header ul{
+#headerInicial ul{
     list-style-type: none;
 }
 
-header ul li{
+#headerInicial ul li{
     display: inline-block;
     margin: 0 40px;
 }
 
-header ul li a{
+#headerInicial ul li a{
     color: white;
     text-decoration: none;
+    transition-duration: 1s;
 }
 
 .background{
@@ -68,7 +69,7 @@ header ul li a{
     padding: 30px 50px;
 }
 
- header img:hover{ /*para quando passar o mouse em cima fazer algum comportamento*/
+ #headerInicial img:hover, .header img:hover{ /*para quando passar o mouse em cima fazer algum comportamento*/
     animation-duration: 1s;
     animation-name: shake;
     animation-iteration-count: infinite; /*tempo de duração da animação enquanto o mouse estiver em cima*/
@@ -105,7 +106,7 @@ nav{
     display: flex;
 }
 
-header a{
+.header a{
     text-decoration: none;
     color: white;
     padding: 0 50px 0 40px;
@@ -115,12 +116,12 @@ header a{
     transition-duration: 1s;
 }
 
-header a:hover{
+#headerInicial a:hover, .header a:hover{
     color: #9276d4;
     font-weight: 700;
 }
 
-.btnEntrarP{
+.btnEntrarP, .btn-entrar{
     padding: 7px;
     background-color: var(--azul-200);
     border: none;
@@ -134,7 +135,7 @@ header a:hover{
     transition-duration: 0.5;
 }
 
-.btnEntrarP:hover{
+.btnEntrarP:hover, .btn-entrar:hover{
     color: #c2adf1;
 }
 

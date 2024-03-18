@@ -15,7 +15,7 @@ const separaInfo = async () => {
 
 separaInfo()
 
-function InfoPersonagens(characters) {  // funçaõ das informações de characters
+function InfoPersonagens(characters) {  // função das informações de characters
     const characterContainer = document.getElementById('character-container')
     characters.map((character) => {
         const divCharacter = document.createElement('div')
@@ -42,5 +42,6 @@ function detalhesPersonagens(_id){
 function criptografarId(_id){
     return _id.toString(36)
 }
+
 
 
