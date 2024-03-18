@@ -68,7 +68,7 @@ html{
 
 
 
- #headerInicial img:hover, .header img:hover{ /*para quando passar o mouse em cima fazer algum comportamento*/
+#headerInicial img:hover, .header img:hover{ /*para quando passar o mouse em cima fazer algum comportamento*/
     animation-duration: 1s;
     animation-name: shake;
     animation-iteration-count: infinite; /*tempo de duração da animação enquanto o mouse estiver em cima*/
@@ -382,7 +382,7 @@ header.rolagem{
     }
 }
 
-@media (max-width: 450px){
+@media (max-width: 480px){
 
     #headerInicial div a img{
         width: 50px;
@@ -475,97 +475,11 @@ header.rolagem{
     }
 
 
-/*-------------------------MODAL CADASTRO-------------------------------*/
-
-.modalContainer{
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 100%;
-    height: 100vh;
-    position: fixed; /*ao deslizar na tela ira acompanhar 'fixado', left e top é estar junto nesses pontos sem espaçamento*/
-    left: 0;
-    top: 0;
-    display: grid;
-    place-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s;;
-}
-
-.modal{
-    background-color: #FFF;
-    width: 0;
-    height: 0;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 0 rgb(39, 43, 85);
-    overflow: hidden;  /*para conter o conteudo dentro do modal 'div'*/
-
-    transition: width 0.15s, height 0.15s;
-}
-
-.modalShow > .modal{
-    width: 250px;
-    height: 150px;
-}
-
-.modalShow{
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.abrirModal{
-    padding: 5px;
-    background-color: #033d74;
-    border-radius: 5px;
-    height: 25px;
-    width: 110px;
-    color: var(--azul-200);
-    font-size: 12px;
-    font-weight: 700;
-    border: 0;
-}
-
-.abrirModal:hover{
-    color: rgb(181, 162, 224);
-    font-weight: 700;
-    font-size: 12px;
-}
-
 /*-----------------------------------------------------------------------*/
 
 .info{
     justify-content: space-between;
     height: 45px;
-}
-
-
-
-.img-login{
-    padding: 0px 20px;
-}
-
-/*-------------------------------MODAL-------------------------------*/
-
-.modal-login{
-    background: transparent;
-    border: none;
-}
-
-.imagemInicial{
-    background-image: url(../img/biblioteca.png);
-    height: 150px;
-}
-
-.container-texto p{
-    padding-top: 50px;
-    text-align: center;
-    font-family: "Montserrat", sans-serif;
-    color: var(--azul-300);
-    font-size: 13.5px;
-    font-weight: 600;
-    line-height: 30px;
-    padding-left: 120px;
-    padding-right: 120px;
 }
 
 /*---------------------------------FOOTER--------------------------------*/
@@ -630,7 +544,7 @@ a:-webkit-any-lin{
     text-align: center;
     letter-spacing: 7px;
     font-weight: 500;
-    background-color: var(--azul-200);
+    background-color: #6331c7d2;
     width: 550px;
     border-radius: 10px;
     padding: 7px 0px;
@@ -648,7 +562,7 @@ a:-webkit-any-lin{
 }
 
 .character-box:hover{
-    background-color: #040a67;
+    background-color: #6331c72f;
 }
 
 #character-container {
